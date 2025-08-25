@@ -1,0 +1,229 @@
+PS D:\GitF> git --version
+git version 2.51.0.windows.1
+PS D:\GitF> git clone https://github.com/harshitsaverma/MyMSSQLRepo.git
+Cloning into 'MyMSSQLRepo'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+PS D:\GitF> git status
+fatal: not a git repository (or any of the parent directories): .git
+PS D:\GitF> cd .\MyMSSQLRepo\
+PS D:\GitF\MyMSSQLRepo> pwd
+
+Path
+----
+D:\GitF\MyMSSQLRepo
+
+
+PS D:\GitF\MyMSSQLRepo> git status       
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS D:\GitF\MyMSSQLRepo> ls
+
+
+    Directory: D:\GitF\MyMSSQLRepo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        25-08-2025     19:11            104 SQLCode1_180924.sql
+
+
+PS D:\GitF\MyMSSQLRepo> ls -a
+Get-ChildItem : Parameter cannot be processed because the parameter name 'a' is ambiguous. Possible matches include: -Attributes 
+-Directory -File -Hidden -ReadOnly -System.
+At line:1 char:4
++ ls -a
++    ~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameter,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS D:\GitF\MyMSSQLRepo> ls -H
+
+
+    Directory: D:\GitF\MyMSSQLRepo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d--h--        25-08-2025     19:17                .git
+
+
+PS D:\GitF\MyMSSQLRepo> ls -A
+Get-ChildItem : Parameter cannot be processed because the parameter name 'A' is ambiguous. Possible matches include: -Attributes 
+-Directory -File -Hidden -ReadOnly -System.
+At line:1 char:4
++ ls -A
++    ~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameter,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS D:\GitF\MyMSSQLRepo> ls ?
+PS D:\GitF\MyMSSQLRepo> ls -?
+
+NAME
+    Get-ChildItem
+
+SYNTAX
+    Get-ChildItem [[-Path] <string[]>] [[-Filter] <string>] [-Include <string[]>] [-Exclude <string[]>] [-Recurse] [-Depth        
+    <uint32>] [-Force] [-Name] [-UseTransaction] [-Attributes {ReadOnly | Hidden | System | Directory | Archive | Device |        
+    Normal | Temporary | SparseFile | ReparsePoint | Compressed | Offline | NotContentIndexed | Encrypted | IntegrityStream |     
+    NoScrubData}] [-FollowSymlink] [-Directory] [-File] [-Hidden] [-ReadOnly] [-System]  [<CommonParameters>]
+
+    Get-ChildItem [[-Filter] <string>] -LiteralPath <string[]> [-Include <string[]>] [-Exclude <string[]>] [-Recurse] [-Depth     
+    <uint32>] [-Force] [-Name] [-UseTransaction] [-Attributes {ReadOnly | Hidden | System | Directory | Archive | Device |        
+    Normal | Temporary | SparseFile | ReparsePoint | Compressed | Offline | NotContentIndexed | Encrypted | IntegrityStream |     
+    NoScrubData}] [-FollowSymlink] [-Directory] [-File] [-Hidden] [-ReadOnly] [-System]  [<CommonParameters>]
+
+
+ALIASES
+    gci
+    ls
+    dir
+
+
+REMARKS
+    Get-Help cannot find the Help files for this cmdlet on this computer. It is displaying only partial help.
+        -- To download and install Help files for the module that includes this cmdlet, use Update-Help.
+        -- To view the Help topic for this cmdlet online, type: "Get-Help Get-ChildItem -Online" or
+           go to https://go.microsoft.com/fwlink/?LinkID=113308.
+
+
+
+PS D:\GitF\MyMSSQLRepo> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   SQLCode1_180924.sql
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS D:\GitF\MyMSSQLRepo> git add SQLCode1_180924.sql
+PS D:\GitF\MyMSSQLRepo> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   SQLCode1_180924.sql
+
+PS D:\GitF\MyMSSQLRepo> git commit -m "Comment Added"
+[main 97b87e3] Comment Added
+ 1 file changed, 1 insertion(+)
+PS D:\GitF\MyMSSQLRepo> git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS D:\GitF\MyMSSQLRepo> git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS D:\GitF\MyMSSQLRepo> git add index.html
+PS D:\GitF\MyMSSQLRepo> git commit -m "New Index File"
+[main a742822] New Index File
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+PS D:\GitF\MyMSSQLRepo> git status        
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS D:\GitF\MyMSSQLRepo> git push origin main
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 626 bytes | 626.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/harshitsaverma/MyMSSQLRepo.git
+   b3173aa..a742822  main -> main
+PS D:\GitF\MyMSSQLRepo> cd ..
+PS D:\GitF> mkdir localrepo
+
+
+    Directory: D:\GitF
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        25-08-2025     19:38                localrepo
+
+
+PS D:\GitF> cd localrepo
+PS D:\GitF\localrepo> ls -a
+Get-ChildItem : Parameter cannot be processed because the parameter name 'a' is ambiguous. Possible matches include: -Attributes 
+-Directory -File -Hidden -ReadOnly -System.
+At line:1 char:4
++ ls -a
++    ~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameter,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS D:\GitF\localrepo> ls 
+PS D:\GitF\localrepo> ls -h
+PS D:\GitF\localrepo> ls -H 
+PS D:\GitF\localrepo> Get-ChildItem
+PS D:\GitF\localrepo> git init       
+Initialized empty Git repository in D:/GitF/localrepo/.git/
+PS D:\GitF\localrepo> ls
+PS D:\GitF\localrepo> ls -a
+Get-ChildItem : Parameter cannot be processed because the parameter name 'a' is ambiguous. Possible matches include: -Attributes 
+-Directory -File -Hidden -ReadOnly -System.
+At line:1 char:4
++ ls -a
++    ~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameter,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS D:\GitF\localrepo> ls -l
+Get-ChildItem : Missing an argument for parameter 'LiteralPath'. Specify a parameter of type 'System.String[]' and try again.     
+At line:1 char:4
++ ls -l
++    ~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-ChildItem], ParameterBindingException
+    + FullyQualifiedErrorId : MissingArgument,Microsoft.PowerShell.Commands.GetChildItemCommand
+
+PS D:\GitF\localrepo> list
+list : The term 'list' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling 
+of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ list
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (list:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS D:\GitF\localrepo> dir
+PS D:\GitF\localrepo> pwd                 
+
+Path
+----
+D:\GitF\localrepo
+
+
+PS D:\GitF\localrepo> Get-ChildItem -path D:\GitF\localrepo -Hidden
+
+
+    Directory: D:\GitF\localrepo
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d--h--        25-08-2025     19:40                .git
+
+
+PS D:\GitF\localrepo>
